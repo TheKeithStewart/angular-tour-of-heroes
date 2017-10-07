@@ -5,11 +5,11 @@ import { Hero } from './hero';
 import { HeroService } from './hero.service';
 
 @Component({
-  selector: 'my-hero-detail',
-  templateUrl: './hero-detail.component.html',
-  styleUrls: ['./hero-detail.component.css']
+  selector: 'my-character-detail',
+  templateUrl: './character-detail.component.html',
+  styleUrls: ['./character-detail.component.css']
 })
-export class HeroDetailComponent implements OnInit {
+export class CharacterDetailComponent implements OnInit {
   @Input() hero: Hero;
   @Output() close = new EventEmitter();
   error: any;

@@ -11,7 +11,7 @@ export class HeroService {
 
   constructor(private http: Http) { }
 
-  getHeroes(): Promise<Array<Hero>> {
+  getCharacters(): Promise<Array<Hero>> {
     return this.http
       .get(this.heroesUrl)
       .toPromise()
@@ -22,7 +22,7 @@ export class HeroService {
   }
 
   getHero(id: number): Promise<Hero> {
-    return this.getHeroes()
+    return this.getCharacters()
       .then(heroes => heroes.find(hero => hero.id === id));
   }
 

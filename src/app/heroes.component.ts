@@ -7,12 +7,12 @@ import { HeroService } from './hero.service';
 @Component({
   selector: 'my-heroes',
   templateUrl: './heroes.component.html',
-  styleUrls: ['./heroes.component.css']
+  styleUrls: ['./heroes.component.scss']
 })
 export class HeroesComponent implements OnInit {
-  heroes: Hero[];
-  selectedHero: Hero;
-  addingHero = false;
+  characters: Hero[];
+  selectedCharacter: Hero;
+  addingCharacter = false;
   error: any;
   showNgFor = false;
 
@@ -20,44 +20,44 @@ export class HeroesComponent implements OnInit {
     private router: Router,
     private heroService: HeroService) { }
 
-  getHeroes(): void {
+  getCharacters(): void {
     this.heroService
-      .getHeroes()
-      .then(heroes => this.heroes = heroes)
+      .getCharacters()
+      .then(characters => this.characters = characters)
       .catch(error => this.error = error);
   }
 
-  addHero(): void {
-    this.addingHero = true;
-    this.selectedHero = null;
+  addCharacter(): void {
+    this.addingCharacter = true;
+    this.selectedCharacter = null;
   }
 
   close(savedHero: Hero): void {
-    this.addingHero = false;
-    if (savedHero) { this.getHeroes(); }
+    this.addingCharacter = false;
+    if (savedHero) { this.getCharacters(); }
   }
 
-  deleteHero(hero: Hero, event: any): void {
+  deleteCharacter(character: Hero, event: any): void {
     event.stopPropagation();
     this.heroService
-      .delete(hero)
+      .delete(character)
       .then(res => {
-        this.heroes = this.heroes.filter(h => h !== hero);
-        if (this.selectedHero === hero) { this.selectedHero = null; }
+        this.characters = this.characters.filter(h => h !== character);
+        if (this.selectedCharacter === character) { this.selectedCharacter = null; }
       })
       .catch(error => this.error = error);
   }
 
   ngOnInit(): void {
-    this.getHeroes();
+    this.getCharacters();
   }
 
   onSelect(hero: Hero): void {
-    this.selectedHero = hero;
-    this.addingHero = false;
+    this.selectedCharacter = hero;
+    this.addingCharacter = false;
   }
 
   gotoDetail(): void {
-    this.router.navigate(['/detail', this.selectedHero.id]);
+    this.router.navigate(['/detail', this.selectedCharacter.id]);
   }
 }
