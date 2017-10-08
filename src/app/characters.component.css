@@ -1,14 +1,12 @@
 .selected {
   background-color: #CFD8DC !important;
   color: white;
-
-  &.hero {
-    background-color: rgb(0,120,215) !important;
-  }
-
-  &.villain {
-    background-color: #f44336 !important;
-  }
+}
+.selected.hero {
+  background-color: rgb(0,120,215) !important;
+}
+.selected.villain {
+  background-color: #f44336 !important;
 }
 .characters {
   margin: 0 0 2em 0;
@@ -24,14 +22,12 @@
   padding: .5em;
   height: 1.6em;
   border-radius: 4px;
-
-  &.hero {
-    background-color: #EEE;
-  }
-
-  &.villain {
-    background-color: #CA9A9A;
-  }
+}
+.characters .hero {
+  background-color: #EEE;
+}
+.characters .villain {
+  background-color: #CA9A9A;
 }
 .characters li:hover {
   color: #607D8B;

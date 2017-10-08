@@ -5,11 +5,11 @@ import { Hero } from './hero';
 import { HeroService } from './hero.service';
 
 @Component({
-  selector: 'my-heroes',
-  templateUrl: './heroes.component.html',
-  styleUrls: ['./heroes.component.scss']
+  selector: 'my-characters',
+  templateUrl: './characters.component.html',
+  styleUrls: ['./characters.component.css']
 })
-export class HeroesComponent implements OnInit {
+export class CharacterComponent implements OnInit {
   characters: Hero[];
   selectedCharacter: Hero;
   addingCharacter = false;
