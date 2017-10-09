@@ -1,8 +1,8 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 
-import { Hero } from './hero';
-import { HeroService } from './hero.service';
+import { Character } from './hero';
+import { CharacterService } from './character.service';
 
 @Component({
   selector: 'my-character-detail',
@@ -10,13 +10,13 @@ import { HeroService } from './hero.service';
   styleUrls: ['./character-detail.component.css']
 })
 export class CharacterDetailComponent implements OnInit {
-  @Input() hero: Hero;
+  @Input() character: Character;
   @Output() close = new EventEmitter();
   error: any;
   navigated = false; // true if navigated here
 
   constructor(
-    private heroService: HeroService,
+    private characterService: CharacterService,
     private route: ActivatedRoute) {
   }
 
@@ -25,27 +25,27 @@ export class CharacterDetailComponent implements OnInit {
       if (params['id'] !== undefined) {
         const id = +params['id'];
         this.navigated = true;
-        this.heroService.getHero(id)
-            .then(hero => this.hero = hero);
+        this.characterService.getCharacter(id)
+            .then(character => this.character = character);
       } else {
         this.navigated = false;
-        this.hero = new Hero();
+        this.character = new Character();
       }
     });
   }
 
   save(): void {
-    this.heroService
-        .save(this.hero)
-        .then(hero => {
-          this.hero = hero; // saved hero, w/ id if new
-          this.goBack(hero);
+    this.characterService
+        .save(this.character)
+        .then(character => {
+          this.character = character; // saved character, w/ id if new
+          this.goBack(character);
         })
         .catch(error => this.error = error); // TODO: Display error message
   }
 
-  goBack(savedHero: Hero = null): void {
-    this.close.emit(savedHero);
+  goBack(savedCharacter: Character = null): void {
+    this.close.emit(savedCharacter);
     if (this.navigated) { window.history.back(); }
   }
 }

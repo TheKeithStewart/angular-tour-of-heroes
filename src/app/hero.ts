@@ -1,4 +1,6 @@
 export class Character {
+  type: string;
+
   constructor(public id?: number, public name?: string) { }
 }
 

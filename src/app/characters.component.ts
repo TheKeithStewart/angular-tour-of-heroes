@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { Hero } from './hero';
-import { HeroService } from './hero.service';
+import { Character } from './hero';
+import { CharacterService } from './character.service';
 
 @Component({
   selector: 'my-characters',
@@ -10,18 +10,18 @@ import { HeroService } from './hero.service';
   styleUrls: ['./characters.component.css']
 })
 export class CharacterComponent implements OnInit {
-  characters: Hero[];
-  selectedCharacter: Hero;
+  characters: Character[];
+  selectedCharacter: Character;
   addingCharacter = false;
   error: any;
   showNgFor = false;
 
   constructor(
     private router: Router,
-    private heroService: HeroService) { }
+    private characterService: CharacterService) { }
 
   getCharacters(): void {
-    this.heroService
+    this.characterService
       .getCharacters()
       .then(characters => this.characters = characters)
       .catch(error => this.error = error);
@@ -32,14 +32,14 @@ export class CharacterComponent implements OnInit {
     this.selectedCharacter = null;
   }
 
-  close(savedHero: Hero): void {
+  close(savedCharacter: Character): void {
     this.addingCharacter = false;
-    if (savedHero) { this.getCharacters(); }
+    if (savedCharacter) { this.getCharacters(); }
   }
 
-  deleteCharacter(character: Hero, event: any): void {
+  deleteCharacter(character: Character, event: any): void {
     event.stopPropagation();
-    this.heroService
+    this.characterService
       .delete(character)
       .then(res => {
         this.characters = this.characters.filter(h => h !== character);
@@ -52,8 +52,8 @@ export class CharacterComponent implements OnInit {
     this.getCharacters();
   }
 
-  onSelect(hero: Hero): void {
-    this.selectedCharacter = hero;
+  onSelect(character: Character): void {
+    this.selectedCharacter = character;
     this.addingCharacter = false;
   }
 

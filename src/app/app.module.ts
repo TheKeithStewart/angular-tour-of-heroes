@@ -8,11 +8,11 @@ import { InMemoryDataService } from './in-memory-data.service';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
-import { HeroService } from './hero.service';
+import { CharacterService } from './character.service';
 import { DashboardComponent } from './dashboard.component';
 import { CharacterComponent } from './characters.component';
 import { CharacterDetailComponent } from './character-detail.component';
-import { HeroSearchComponent } from './hero-search.component';
+import { CharacterSearchComponent } from './character-search.component';
 
 @NgModule({
   imports: [
@@ -25,11 +25,11 @@ import { HeroSearchComponent } from './hero-search.component';
   declarations: [
     AppComponent,
     DashboardComponent,
-    HeroSearchComponent,
+    CharacterSearchComponent,
     CharacterComponent,
     CharacterDetailComponent,
   ],
-  providers: [HeroService],
+  providers: [CharacterService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
