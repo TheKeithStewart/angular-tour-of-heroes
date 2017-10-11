@@ -10,7 +10,7 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { CharacterService } from './character.service';
 import { DashboardComponent } from './dashboard.component';
-import { CharacterComponent } from './characters.component';
+import { CharactersComponent } from './characters.component';
 import { CharacterDetailComponent } from './character-detail.component';
 import { CharacterSearchComponent } from './character-search.component';
 
@@ -26,8 +26,8 @@ import { CharacterSearchComponent } from './character-search.component';
     AppComponent,
     DashboardComponent,
     CharacterSearchComponent,
-    CharacterComponent,
-    CharacterDetailComponent,
+    CharactersComponent,
+    CharacterDetailComponent
   ],
   providers: [CharacterService],
   bootstrap: [AppComponent]

@@ -9,7 +9,7 @@ import { CharacterService } from './character.service';
   templateUrl: './characters.component.html',
   styleUrls: ['./characters.component.css']
 })
-export class CharacterComponent implements OnInit {
+export class CharactersComponent implements OnInit {
   characters: Character[];
   selectedCharacter: Character;
   addingCharacter = false;
