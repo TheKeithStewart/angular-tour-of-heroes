@@ -4,6 +4,7 @@ import { RouterTestingModule } from '@angular/router/testing';
 
 import { CharacterService } from './character.service';
 import { CharactersComponent } from './characters.component';
+import { Character } from './hero';
 
 class MockCharacterService {
   getCharacters = jasmine.createSpy('getCharacters')
@@ -36,5 +37,16 @@ describe('CharactersComponent', () => {
 
   it('should be created', () => {
     expect(component).toBeTruthy();
+  });
+
+  describe('#onSelect', () => {
+    it('should set the selectedCharacter property', () => {
+      const character = new Character();
+
+      component.onSelect(character);
+      expect(component.selectedCharacter).toBe(character);
+    });
+
+    it('should set addingCharacter to false');
   });
 });

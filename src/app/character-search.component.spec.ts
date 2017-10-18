@@ -67,14 +67,14 @@ describe('CharacterSearchComponent', () => {
     }));
 
     it('should set characters to an empty array if search for characters fails', fakeAsync(() => {
+      let result: Character[];
       const characterSearchService = fixture.debugElement.injector.get(CharacterSearchService);
       const spy = spyOn(characterSearchService, 'search').and.throwError('Danger!')
 
-      component.characters.subscribe(result => {
-        expect(result).toEqual([]);
-      });
+      component.characters.subscribe(characters => result = characters);
       component.search('captain blah');
       tick(300);
+      expect(result).toEqual([]);
     }));
   });
 
