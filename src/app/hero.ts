@@ -1,12 +1,12 @@
 export class Character {
   type: string;
-  health = 10;
 
   constructor(
     public id?: number,
     public name?: string,
-    public attackRating?: number,
-    public defenseRating?: number
+    public attackRating = 5,
+    public defenseRating = 5,
+    public health = 10
   ) { }
 }
 
