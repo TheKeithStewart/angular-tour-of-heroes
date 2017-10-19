@@ -13,7 +13,7 @@ export class CharactersComponent implements OnInit {
   characters: Character[];
   selectedCharacter: Character;
   addingCharacter = false;
-  error: any;
+  message: any;
   showNgFor = false;
 
   constructor(
@@ -24,7 +24,7 @@ export class CharactersComponent implements OnInit {
     this.characterService
       .getCharacters()
       .then(characters => this.characters = characters)
-      .catch(error => this.error = error);
+      .catch(error => this.message = error);
   }
 
   addCharacter(): void {
@@ -45,7 +45,7 @@ export class CharactersComponent implements OnInit {
         this.characters = this.characters.filter(h => h !== character);
         if (this.selectedCharacter === character) { this.selectedCharacter = null; }
       })
-      .catch(error => this.error = error);
+      .catch(error => this.message = error);
   }
 
   ngOnInit(): void {

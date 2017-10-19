@@ -6,10 +6,11 @@
       <span class="badge" [ngClass]="{ 'warning': character.health < 6 && character.health > 2, 'danger': character.health <= 2 }">{{character.health}}</span> {{character.name}}
     </span>
     <button class="delete-button" (click)="deleteCharacter(character, $event)">Delete</button>
+    <!-- <button class="delete-button" *ngIf="selectedCharacter && character !== selectedCharacter" (click)="attackCharacter(character, $event)">Attack</button> -->
   </li>
 </ul>
 
-<div class="error" *ngIf="error">{{error}}</div>
+<div class="error" *ngIf="message">{{message}}</div>
 <button (click)="addCharacter()">Add New Character</button>
 <div *ngIf="addingCharacter">
   <my-character-detail (close)="close($event)"></my-character-detail>

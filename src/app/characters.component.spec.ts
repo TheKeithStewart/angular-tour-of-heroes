@@ -59,7 +59,7 @@ describe('CharactersComponent', () => {
 
       component.getCharacters();
       tick();
-      expect(component.error).toEqual(error);
+      expect(component.message).toEqual(error);
     }));
   });
 
@@ -121,7 +121,7 @@ describe('CharactersComponent', () => {
 
       component.deleteCharacter(deleteCharacter, event);
       tick();
-      expect(component.error).toEqual(error);
+      expect(component.message).toEqual(error);
     }));
   });
 
