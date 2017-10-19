@@ -3,7 +3,7 @@
 <ul class="characters">
   <li *ngFor="let character of characters" (click)="onSelect(character)" [class.selected]="character === selectedCharacter" [ngClass]="{ 'hero': character.type === 'hero', 'villain': character.type === 'villain' }">
     <span class="character-element">
-      <span class="badge">{{character.id}}</span> {{character.name}}
+      <span class="badge" [ngClass]="{ 'warning': character.health < 6 && character.health > 2, 'danger': character.health <= 2 }">{{character.health}}</span> {{character.name}}
     </span>
     <button class="delete-button" (click)="deleteCharacter(character, $event)">Delete</button>
   </li>

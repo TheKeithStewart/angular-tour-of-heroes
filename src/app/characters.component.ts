@@ -37,7 +37,7 @@ export class CharactersComponent implements OnInit {
     if (savedCharacter) { this.getCharacters(); }
   }
 
-  deleteCharacter(character: Character, event: any): void {
+  deleteCharacter(character: Character, event: Event): void {
     event.stopPropagation();
     this.characterService
       .delete(character)
